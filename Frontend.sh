@@ -12,6 +12,8 @@ cd /usr/share/nginx/html  &>> /tmp/roboshop.log
 unzip /tmp/frontend.zip  &>> /tmp/roboshop.log
 
 # create new roboshop.conf file
+echo -e "\e[33m coping the roboshop.conf file\e[0m"
+cp /root/project/Roboshop.conf /etc/nginx/default.d/Roboshop.conf
 
 echo -e "\e[33m starting the nginx server\e[0m"
 systemctl enable nginx &>> /tmp/roboshop.log
