@@ -17,4 +17,4 @@ cp /root/project/Roboshop.conf /etc/nginx/default.d/Roboshop.conf
 
 echo -e "\e[33m starting the nginx server\e[0m"
 systemctl enable nginx &>> /tmp/roboshop.log
-systemctl restart nginx  &>> /tmp/roboshop.log
+systemctl restart nginx  &>> /tmp/roboshop.log 
