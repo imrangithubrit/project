@@ -24,7 +24,7 @@ echo -e "\e[33m install nodejs dependencies\e[0m"
 npm install   &>> /tmp/roboshop.log
 
 echo -e "\e[33m copying in the cart service\e[0m"
-cp /root/project/cart.service /etc/systemd/system/cart.service
+cp /root/project/cart.service /etc/systemd/system/cart.service  &>> /tmp/roboshop.log
 
 echo -e "\e[33m setup systemd services\e[0m" 
 systemctl daemon-reload &>> /tmp/roboshop.log
