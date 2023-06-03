@@ -1,6 +1,6 @@
+source=common.sh
 component=catalogue
-color="\e[34m"
-nocolor="\e[0m"
+
 
 echo -e "${color} Configuring Nodejs repo ${nocolor}" 
 
