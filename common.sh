@@ -3,18 +3,17 @@ nocolor="\e[0m"
 
 app_present() {
  echo -e "${color} Added Application user ${nocolor}" 
- useradd roboshop   &>> /tmp/roboshop.log
+ useradd roboshop   &>>/tmp/roboshop.log
  echo -e "${color} create app directory ${nocolor}"
- rm -rf /app   &>> /tmp/roboshop.log
- mkdir /app    &>> /tmp/roboshop.log
+ rm -rf /app   &>>/tmp/roboshop.log
+ mkdir /app    &>>/tmp/roboshop.log
  
  echo -e "${color} download application content ${nocolor}" 
- curl -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component.zip   &>> /tmp/roboshop.log 
+ curl -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component.zip   &>>/tmp/roboshop.log 
 
- echo -e "${color} Extract Application content ${nocolor}" 
- cd /app   &>> /tmp/roboshop.log
-
- unzip /tmp/$component.zip   &>> /tmp/roboshop.log
+ echo -e "${color} Extract Application content ${nocolor}"  
+ cd /app   &>>/tmp/roboshop.log
+ unzip /tmp/$component.zip   &>>/tmp/roboshop.log
 
   
 
@@ -22,11 +21,11 @@ app_present() {
 
 systemd_setup()  {
  echo -e "${color} setup systemd services ${nocolor}" 
- cp /root/project/$component.service  /etc/systemd/system/$component.service &>> /tmp/roboshop.log
+ cp /root/project/$component.service  /etc/systemd/system/$component.service &>>/tmp/roboshop.log
  echo -e "${color} starts $component services ${nocolor}" 
- systemctl daemon-reload  &>> /tmp/roboshop.log
- systemctl enable $component &>> /tmp/roboshop.log
- systemctl restart $component  &>> /tmp/roboshop.log
+ systemctl daemon-reload  &&>>/tmp/roboshop.log
+ systemctl enable $component &>>/tmp/roboshop.log
+ systemctl restart $component  &>>/tmp/roboshop.log
 }
 
 
