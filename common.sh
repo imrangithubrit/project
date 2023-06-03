@@ -29,7 +29,7 @@ systemd_setup()  {
  systemctl restart $component  &>> /tmp/roboshop.log
 }
 
-}
+
 
 
 nodejs()  {
@@ -46,7 +46,7 @@ nodejs()  {
  npm install  &>> /tmp/roboshop.log
  # Need to copy the catalogu.service file
  
- 
+} 
  
 
 
