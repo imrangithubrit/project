@@ -1,5 +1,5 @@
 source common.sh
-component=${cart}
+component=cart
 
 echo -e "$color Configuring Nodejs repo $nocolor" 
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>> /tmp/roboshop.log
