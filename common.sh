@@ -38,7 +38,7 @@ nodejs()  {
 }
 
 
- mongodb_schema setup() {
+ mongo_schemasetup() {
 
  echo -e "${color} copy mongo db repo file ${nocolor}" 
  cp /root/project/mongodb.repo /etc/yum.repos.d/mongodb.repo  &>> /tmp/roboshop.log
