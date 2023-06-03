@@ -1,4 +1,4 @@
-componemt=catalogue
+component=catalogue
 
 echo -e "\e[33m Configuring Nodejs repo\e[0m" 
 
@@ -38,4 +38,4 @@ cp /root/project/mongodb.repo /etc/yum.repos.d/mongodb.repo  &>> /tmp/roboshop.l
 
 echo -e "\e[33m Install mongodb\e[0m" 
 yum install mongodb-org-shell -y  &>> /tmp/roboshop.log
-mongo --host mongodb-dev.devopsb72.store </app/schema/catalogue.js   &>> /tmp/roboshop.log
+mongo --host mongodb-dev.devopsb72.store </app/schema/$component.js   &>> /tmp/roboshop.log
