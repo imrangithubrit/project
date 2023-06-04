@@ -67,7 +67,7 @@ nodejs()  {
 mysql_schema_setup(){
  yum install mysql -y 
 
-mysql -h mysql-dev.devopsb72.store -uroot -pRoboShop@1 < /app/schema/{component}.sql 
+mysql -h mysql-dev.devopsb72.store -uroot -pRoboShop@1 < /app/schema/${component}.sql 
 
 
 }
@@ -91,7 +91,7 @@ python() {
   echo $?
  app_presetup
 
- echo -e "${color} Install application dependencies${nocolor}"
+ echo -e "${color} Install application dependencies${nocolor}" 
  cd /app 
  pip3.6 install -r requirements.txt
 
