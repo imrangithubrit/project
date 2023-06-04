@@ -4,17 +4,21 @@ nocolor="\e[0m"
 app_present() {
  echo -e "${color} Added Application user ${nocolor}" 
  useradd roboshop   &>>/tmp/roboshop.log
+ 
+  echo $?
  echo -e "${color} create app directory ${nocolor}"
  rm -rf /app   &>>/tmp/roboshop.log
  mkdir /app    &>>/tmp/roboshop.log
- 
+ echo $?
  echo -e "${color} download application content ${nocolor}" 
- curl -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component.zip   &>>/tmp/roboshop.log 
+ curl -o /tmp/$component.zip https://roboshop-artifacts.s3.amazonaws.com/$component.zip   &>>/tmp/roboshop.log
+ echo $? 
 
  echo -e "${color} Extract Application content ${nocolor}"  
  cd /app   &>>/tmp/roboshop.log
  unzip /tmp/$component.zip   &>>/tmp/roboshop.log
 
+ echo $?
   
 
 }
@@ -26,6 +30,7 @@ systemd_setup()  {
  systemctl daemon-reload  &&>>/tmp/roboshop.log
  systemctl enable $component &>>/tmp/roboshop.log
  systemctl restart $component  &>>/tmp/roboshop.log
+ echo $?
 }
 
 
@@ -79,4 +84,17 @@ maven() {
 
 }
 
+python() {
 
+ echo -e "${color} Installing python ${nocolor}"
+ yum install python36 gcc python3-devel -y
+  echo $?
+ app_presetup
+
+ echo -e "${color} Install application dependencies${nocolor}"
+ cd /app 
+ pip3.6 install -r requirements.txt
+
+ systemd_setup
+
+}
