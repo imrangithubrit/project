@@ -5,7 +5,7 @@ app_present() {
  echo -e "${color} Added Application user ${nocolor}" 
  useradd roboshop   &>>/tmp/roboshop.log
  
-  echo $?
+ echo $?
  echo -e "${color} create app directory ${nocolor}"
  rm -rf /app   &>>/tmp/roboshop.log
  mkdir /app    &>>/tmp/roboshop.log
@@ -37,7 +37,7 @@ systemd_setup()  {
 
 
 nodejs()  {
-  echo -e "${color} Configuring Nodejs repo ${nocolor}" 
+ echo -e "${color} Configuring Nodejs repo ${nocolor}" 
 
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash   &>> /tmp/roboshop.log
 
@@ -67,12 +67,12 @@ nodejs()  {
 mysql_schema_setup(){
  yum install mysql -y 
 
-mysql -h mysql-dev.devopsb72.store -uroot -pRoboShop@1 < /app/schema/${component}.sql 
+ mysql -h mysql-dev.devopsb72.store -uroot -pRoboShop@1 < /app/schema/${component}.sql 
 
 
 }
 maven() {
-  yum install maven -y
+ yum install maven -y
 
 
  app_present
@@ -88,7 +88,7 @@ python() {
 
  echo -e "${color} Installing python ${nocolor}"
  yum install python36 gcc python3-devel -y
-  echo $?
+ echo $?
  app_presetup
 
  echo -e "${color} Install application dependencies${nocolor}" 
